@@ -63,4 +63,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  serverMiddleware: [
+    // Will register file from project server-middleware directory to handle /server-middleware/* requires
+    { path: '/api', handler: '~/api/index.js' },
+
+  ]
 }
