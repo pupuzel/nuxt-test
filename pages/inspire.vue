@@ -7,13 +7,25 @@
         class="mb-5"
       >
       <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
+      <p>
+        This page is rendered on the <strong>{{ rendering }}</strong>
+      </p>
         <footer>
           <small>
-            <em>&mdash;John Johnson</em>
+            <em>&mdash;Jock Jock</em>
           </small>
         </footer>
       </blockquote>
     </v-col>
   </v-row>
 </template>
+
+<script>
+export default {
+  asyncData() {
+    return {
+      rendering: process.server ? 'server' : 'client'
+    }
+  }
+}
+</script>
