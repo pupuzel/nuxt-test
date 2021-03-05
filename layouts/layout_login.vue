@@ -10,6 +10,12 @@
 
 <script>
 export default {
+  head: {
+    script: [
+      { src: 'https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js' },
+      { src: 'https://developers.kakao.com/sdk/js/kakao.min.js' }
+    ]
+  },
   data () {
     return {
 

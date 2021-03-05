@@ -6,12 +6,7 @@
 
 <script>
 export default {
-  layout: 'nolayout',
-  head: {
-    script: [
-      { src: 'https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js' }
-    ]
-  },
+  layout: 'layout_login',
   mounted() {
     const naverLogin = new naver.LoginWithNaverId({
       clientId: 'KHtQ1qhApsGNyLx7_uKg',
