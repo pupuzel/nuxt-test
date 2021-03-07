@@ -23,7 +23,9 @@
 
 <script>
 export default {
-  layout: 'nolayout',
+  fetch(context){
+    console.log(context.isDev)
+  },
 
   async asyncData({ $axios }){
     const data = (await $axios.get('/api/test/json')).data
