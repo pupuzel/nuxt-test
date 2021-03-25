@@ -33,6 +33,11 @@ module.exports = {
     "no-trailing-spaces": "off",
     "Extra semicolon": "off",
     "no-undef": "off",
+    "semi": "off",
+    "padded-blocks": "off",
+    "quotes": "off",
+    "keyword-spacing": "off",
+    "quote-props": "off",
     "vue/singleline-html-element-content-newline": "off",
   }
 }

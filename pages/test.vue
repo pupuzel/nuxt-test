@@ -23,7 +23,6 @@
 
 <script>
 export default {
-  layout: 'nolayout',
 
   async asyncData({ $axios }){
     const data = (await $axios.get('/api/test/json')).data
