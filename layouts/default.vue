@@ -102,9 +102,19 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-login',
+          title: 'Login',
+          to: '/login'
+        },
+        {
+          icon: 'mdi-logout',
+          title: 'Logout',
+          to: '/logout'
+        },
+        {
+          icon: 'mdi-home',
+          title: 'Test',
+          to: '/test'
         }
       ],
       miniVariant: false,

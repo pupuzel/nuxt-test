@@ -38,6 +38,7 @@ module.exports = {
     "quotes": "off",
     "keyword-spacing": "off",
     "quote-props": "off",
+    "no-var": "off",
     "vue/singleline-html-element-content-newline": "off",
   }
 }

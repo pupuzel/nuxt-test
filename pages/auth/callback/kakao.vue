@@ -5,7 +5,7 @@
 <script>
 export default {
   layout: 'layout_login',
-    async asyncData({ $axios, query, store }){
+    async asyncData({ app, $axios, query, store, redirect }){
 
       const config = {
           headers: {
@@ -30,16 +30,28 @@ export default {
 
         const info = {
           id: userInfo.data.id,
+          access_token: tokenInfo.data.access_token,
+          auth_type: 'naver',
           age: userInfo.data.kakao_account.age_range,
           gender: userInfo.data.kakao_account.gender,
-          nickname: userInfo.data.properties.nickname,
+          nick_name: userInfo.data.properties.nickname,
           profile_image: userInfo.data.properties.profile_image,
         }
         
-        console.log(info)
+        //console.log(info)
+
+        const authenticate = await $axios.post('http://localhost:7000/authenticate/login', info)
+        if(authenticate.data.result === 'Y'){
+          //console.log(authenticate.data)
+          redirect('/')  
+        }else{
+          console.log(authenticate.data.message)
+          redirect('/error/401')
+        }
 
       } catch (e) {
         console.log(e)
+        redirect('/')
       }
     
     },
