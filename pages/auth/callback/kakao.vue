@@ -31,7 +31,7 @@ export default {
         const info = {
           id: userInfo.data.id,
           access_token: tokenInfo.data.access_token,
-          auth_type: 'naver',
+          auth_type: 'kakao',
           age: userInfo.data.kakao_account.age_range,
           gender: userInfo.data.kakao_account.gender,
           nick_name: userInfo.data.properties.nickname,

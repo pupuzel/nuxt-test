@@ -8,20 +8,34 @@
       app
     >
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+        <template
+          v-for="(item, i) in items">
+
+          <template v-if="item.linkType">
+            <a :href="item.to" :key="i" style="text-decoration: none;">
+              <v-list-item exact>
+                <v-list-item-action>
+                  <v-icon>{{ item.icon }}</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title" />
+                </v-list-item-content>
+              </v-list-item>
+            </a>
+          </template>
+          <template v-else> 
+            <NuxtLink :to="item.to" :key="i" style="text-decoration: none;">
+              <v-list-item exact>
+                <v-list-item-action>
+                  <v-icon>{{ item.icon }}</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title" />
+                </v-list-item-content>
+              </v-list-item>
+            </NuxtLink>
+          </template>
+        </template>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -99,22 +113,26 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Welcome',
-          to: '/'
+          to: '/',
+          linkType: false
         },
         {
           icon: 'mdi-login',
           title: 'Login',
-          to: '/login'
+          to: '/login',
+          linkType: false
         },
         {
           icon: 'mdi-logout',
           title: 'Logout',
-          to: '/logout'
+          to: '/logout',
+          linkType: true
         },
         {
           icon: 'mdi-home',
           title: 'Test',
-          to: '/test'
+          to: '/test',
+          linkType: false
         }
       ],
       miniVariant: false,

@@ -29,14 +29,7 @@
 
 <script>
 export default {
-<<<<<<< HEAD
-  fetch(context){
-    console.log(context.isDev)
-  },
-=======
->>>>>>> 6044f9b8b94c48fc47c746600b4b9fa31a613057
-
-  async asyncData({ $axios, redirect }){
+  async asyncData({ $axios }){
     let info = {}
     try{
       const userinfo = await $axios.get('/api/userinfo')
