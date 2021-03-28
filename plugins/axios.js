@@ -1,10 +1,17 @@
-export default function({ $axios, redirect }){
-    $axios.setHeader('content-type', 'application/json')
+export default function ({ $axios, res }) {
+  $axios.setHeader('content-type', 'application/json')
+  $axios.setHeader('X-Requested-With', 'Axios')
+  $axios.onError((error) => {
+      if(error.response && error.response.status){
+        const code = parseInt(error.response.status)
+        redirect(`/error/${code}`)
+      }
 
-    $axios.onError((error) => {
-        const code = parseInt(error.response && error.response.status)
-        if (code === 400) {
-          redirect('/400')
-        }
-    })
+  })
+  $axios.onResponse((response) => {
+    const setCookies = response.headers['set-cookie'];
+    if (setCookies) {
+      res.setHeader('Set-Cookie', setCookies);
+    }
+  });
 }

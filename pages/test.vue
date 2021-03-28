@@ -1,13 +1,18 @@
 <template>
   <div>
     <h1>Hello Nuxters! 👋</h1>
-    <p>
+    <p v-if="info.user_id">
       This page is rendered on the <strong>{{ rendering }}</strong>
     </p>
+    <p v-else>
+       Please check Login
+    </p>
     <ul>
-      <li>{{ info.name }}</li>
-      <li>{{ info.age }}</li>
+      <li>{{ info.user_id }}</li>
+      <li>{{ info.nick_name }}</li>
+      <li>{{ info.auth_type }}</li>
     </ul>
+<!-- 
     <p>------------------------</p>
     <ul>
       <li v-for="todo in todos" :key="todo.text">
@@ -18,28 +23,35 @@
     </ul>
 
     <NuxtLink to="/inspire">inspire Page</NuxtLink>
+   -->  
   </div>
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
   fetch(context){
     console.log(context.isDev)
   },
+=======
+>>>>>>> 6044f9b8b94c48fc47c746600b4b9fa31a613057
 
-  async asyncData({ $axios }){
-    const data = (await $axios.get('/api/test/json')).data
+  async asyncData({ $axios, redirect }){
+    let info = {}
+    try{
+      const userinfo = await $axios.get('/api/userinfo')
+      info = userinfo.data
+    } catch(e){
+      console.log(e)
+    }
+
+
     return {
-      info: data,
+      info,
       rendering: process.server ? 'server' : 'client'
     }
   },
 
-  data(){
-    return {
-      myname: 'jock'
-    }
-  },
 
   computed: {
     todos () {
