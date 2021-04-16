@@ -15,7 +15,8 @@ module.exports = {
   plugins: [
     'vue'
   ],
-  // add your custom rules here
+  
+  ignorePatterns: ["**/modules/*.js"],
   rules: {
     "indent": "off",
     "spaced-comment": "off",
@@ -39,6 +40,7 @@ module.exports = {
     "keyword-spacing": "off",
     "quote-props": "off",
     "no-var": "off",
+    "no-tabs": "off",
     "vue/singleline-html-element-content-newline": "off",
   }
 }

@@ -130,8 +130,20 @@ export default {
         },
         {
           icon: 'mdi-home',
-          title: 'Test',
-          to: '/test',
+          title: 'Api Test',
+          to: '/api-test',
+          linkType: false
+        },
+        {
+          icon: 'mdi-home',
+          title: 'Toast Editor Test',
+          to: '/toast-editor',
+          linkType: false
+        },
+        {
+          icon: 'mdi-home',
+          title: 'CK Editor Test',
+          to: '/ck-editor',
           linkType: false
         }
       ],
