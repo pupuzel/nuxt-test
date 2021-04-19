@@ -1,6 +1,6 @@
 <template>
     <div>
-       <ckeditor :editor="editor" :value="editorData"/>
+       <ckeditor :editor="editor" :value="editorData" :config="editorConfig"/>
     </div>
 </template>
 
@@ -20,7 +20,44 @@
                 editor: CustomBuild,
                 editorData: '<p>Content of the editor.</p>',
                 editorConfig: {
-                    // The configuration of the editor.
+                        toolbar: {
+                            items: [
+                                'heading',
+                                '|',
+                                'fontColor',
+                                'fontBackgroundColor',
+                                'bold',
+                                'italic',
+                                'link',
+                                'bulletedList',
+                                'numberedList',
+                                '|',
+                                'outdent',
+                                'indent',
+                                '|',
+                                'imageUpload',
+                                'blockQuote',
+                                'insertTable',
+                                'mediaEmbed',
+                                'undo',
+                                'redo'
+                            ]
+                        },
+                        language: 'ko',
+                        image: {
+                            toolbar: [
+                                'imageTextAlternative',
+                                'imageStyle:full',
+                                'imageStyle:side'
+                            ]
+                        },
+                        table: {
+                            contentToolbar: [
+                                'tableColumn',
+                                'tableRow',
+                                'mergeTableCells'
+                            ]
+                        },
                 }
             };
         }
